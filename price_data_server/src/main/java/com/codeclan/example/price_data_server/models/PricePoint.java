@@ -10,14 +10,14 @@ public class PricePoint {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "date")
+    private String date;
 
     @Column(name = "price")
     private String price;
 
-    public PricePoint(String name, String price) {
-        this.name = name;
+    public PricePoint(String date, String price) {
+        this.date = date;
         this.price = price;
     }
 
@@ -32,12 +32,12 @@ public class PricePoint {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDate() {
+        return date;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getPrice() {
