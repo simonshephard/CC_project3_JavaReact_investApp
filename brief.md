@@ -1,11 +1,11 @@
-# Java Project Definitions
+# Java-React Project Brief
 
 
-## Jurassic Park
+## Investment App
 
-Goal: Create a web application in React with Spring/Java back end
+Goals:
+-Create a front-end web application using React with a Spring/Java back-end to view investment performance of selected markets.
 
-You have been asked to create a web app to allow the management in Jurassic Park to manage the dinosaur population and visitor tracking of the Park. (No expense spared)
 
 ### MVP
 
