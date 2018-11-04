@@ -26,9 +26,9 @@ public class DataLoader implements ApplicationRunner {
         ArrayList<String[]> priceData = CSVParser.getData(filename1);
 
         for (String[] lineArray : priceData) {
-            System.out.print(Arrays.toString(lineArray));
-            System.out.print("\n");
-            PricePoint pricePoint = new PricePoint(lineArray[0], lineArray[5]);
+            // System.out.print(Arrays.toString(lineArray));
+            // System.out.print("\n");
+            PricePoint pricePoint = new PricePoint(lineArray[0], lineArray[1], lineArray[2], lineArray[3], lineArray[4], lineArray[5], lineArray[6]);
             pricePointRepository.save(pricePoint);
         }
 
