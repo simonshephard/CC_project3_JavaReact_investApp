@@ -5,7 +5,7 @@ import {LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip} from 'rec
 const Prices = ({data}) => {
 
   const listItems = data.map((pricePoint, index) => {
-    return <li key={index}>{pricePoint.date + "-" + pricePoint.time}, {pricePoint.close}</li>
+    return <li key={index}>{pricePoint.market}, {pricePoint.date + "-" + pricePoint.time}, {pricePoint.close}</li>
   });
 
 
