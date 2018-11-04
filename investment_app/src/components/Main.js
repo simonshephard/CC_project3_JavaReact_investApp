@@ -27,7 +27,10 @@ class Main extends Component {
     // http://localhost:8080/pricePoints?size=1000
     // request.get("pricePoints").then((data) => {
     // request.get("pricePoints?size=2000").then((data) => {
-    request.get("pricePoints/market/FTSE100").then((data) => {
+
+    // request.get("pricePoints/market/FTSE100").then((data) => {
+    request.get("pricePoints/market/EURUSD").then((data) => {
+
       // console.log(data);
       // this.setState({data: data._embedded.pricePoints})
       this.setState({data: data})
