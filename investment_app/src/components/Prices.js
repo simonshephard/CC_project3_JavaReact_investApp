@@ -16,7 +16,9 @@ const Prices = ({data}) => {
         <Line type="monotone" dataKey="price" stroke="#000000" />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <XAxis dataKey="date" />
-        <YAxis type="number" domain={[900, 1200]} />
+        // <YAxis type="number" domain={[900, 1200]} />
+        // <YAxis type="number" />
+        <YAxis type="number" domain={[1, 2]} />
         <Legend width={100} wrapperStyle={{bottom: 90, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px'}} />
         <Tooltip wrapperStyle={{width: 200, backgroundColor: "#ccc"}} />
       </LineChart>

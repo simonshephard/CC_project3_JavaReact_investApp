@@ -7,6 +7,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -19,27 +22,40 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        PricePoint pricePoint1 = new PricePoint("20181001", "1000.10");
-        PricePoint pricePoint2 = new PricePoint("20181002", "1010.11");
-        PricePoint pricePoint3 = new PricePoint("20181003", "1020.12");
-        PricePoint pricePoint4 = new PricePoint("20181004", "1030.13");
-        PricePoint pricePoint5 = new PricePoint("20181005", "1040.14");
-        PricePoint pricePoint6 = new PricePoint("20181006", "1050.15");
-        PricePoint pricePoint7 = new PricePoint("20181007", "1060.16");
-        PricePoint pricePoint8 = new PricePoint("20181008", "1070.17");
-        PricePoint pricePoint9 = new PricePoint("20181009", "1080.18");
-        PricePoint pricePoint10 = new PricePoint("20181010", "1090.19");
+        String filename1 = "/Users/user/codeclan/work/w15/CC_project3_JavaReact_investApp/20181102/EURUSD(£)1440.csv";
+        ArrayList<String[]> priceData = CSVParser.getData(filename1);
 
-        pricePointRepository.save(pricePoint1);
-        pricePointRepository.save(pricePoint2);
-        pricePointRepository.save(pricePoint3);
-        pricePointRepository.save(pricePoint4);
-        pricePointRepository.save(pricePoint5);
-        pricePointRepository.save(pricePoint6);
-        pricePointRepository.save(pricePoint7);
-        pricePointRepository.save(pricePoint8);
-        pricePointRepository.save(pricePoint9);
-        pricePointRepository.save(pricePoint10);
+        for (String[] lineArray : priceData) {
+            System.out.print(Arrays.toString(lineArray));
+            System.out.print("\n");
+            PricePoint pricePoint = new PricePoint(lineArray[0], lineArray[5]);
+            pricePointRepository.save(pricePoint);
+        }
+
+
+
+
+//        PricePoint pricePoint1 = new PricePoint("20181001", "1000.10");
+//        PricePoint pricePoint2 = new PricePoint("20181002", "1010.11");
+//        PricePoint pricePoint3 = new PricePoint("20181003", "1020.12");
+//        PricePoint pricePoint4 = new PricePoint("20181004", "1030.13");
+//        PricePoint pricePoint5 = new PricePoint("20181005", "1040.14");
+//        PricePoint pricePoint6 = new PricePoint("20181006", "1050.15");
+//        PricePoint pricePoint7 = new PricePoint("20181007", "1060.16");
+//        PricePoint pricePoint8 = new PricePoint("20181008", "1070.17");
+//        PricePoint pricePoint9 = new PricePoint("20181009", "1080.18");
+//        PricePoint pricePoint10 = new PricePoint("20181010", "1090.19");
+
+//        pricePointRepository.save(pricePoint1);
+//        pricePointRepository.save(pricePoint2);
+//        pricePointRepository.save(pricePoint3);
+//        pricePointRepository.save(pricePoint4);
+//        pricePointRepository.save(pricePoint5);
+//        pricePointRepository.save(pricePoint6);
+//        pricePointRepository.save(pricePoint7);
+//        pricePointRepository.save(pricePoint8);
+//        pricePointRepository.save(pricePoint9);
+//        pricePointRepository.save(pricePoint10);
 
     }
 
