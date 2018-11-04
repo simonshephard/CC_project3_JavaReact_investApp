@@ -2,7 +2,6 @@ class Request {
 
   get(url) {
     console.log(url);
-    // return fetch(url, { headers: {'Accept': '*/*'} })
     return fetch(url)
     .then((res) => res.json());
   }
