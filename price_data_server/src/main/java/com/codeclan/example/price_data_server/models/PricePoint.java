@@ -10,11 +10,14 @@ public class PricePoint {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "date")
-    private String date;
+    @Column(name = "market")
+    private String market;
 
     @Column(name = "time")
     private String time;
+
+    @Column(name = "date")
+    private String date;
 
     @Column(name = "open")
     private String open;
@@ -31,7 +34,8 @@ public class PricePoint {
     @Column(name = "volume")
     private String volume;
 
-    public PricePoint(String date, String time, String open, String high, String low, String close, String volume) {
+    public PricePoint(String market, String date, String time, String open, String high, String low, String close, String volume) {
+        this.market = market;
         this.date = date;
         this.time = time;
         this.open = open;
@@ -50,6 +54,14 @@ public class PricePoint {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
     }
 
     public String getDate() {

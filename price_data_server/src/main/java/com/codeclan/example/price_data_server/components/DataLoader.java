@@ -22,16 +22,23 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        String filename1 = "/Users/user/codeclan/work/w15/CC_project3_JavaReact_investApp/20181102/EURUSD(£)1440.csv";
-        ArrayList<String[]> priceData = CSVParser.getData(filename1);
+        String location = "/Users/user/codeclan/work/w15/CC_project3_JavaReact_investApp/20181102/";
 
-        for (String[] lineArray : priceData) {
-            // System.out.print(Arrays.toString(lineArray));
-            // System.out.print("\n");
-            PricePoint pricePoint = new PricePoint(lineArray[0], lineArray[1], lineArray[2], lineArray[3], lineArray[4], lineArray[5], lineArray[6]);
-            pricePointRepository.save(pricePoint);
-        }
+//        String filename1 = "EURUSD(£)1440.csv";
+//        String market1 = "EURUSD";
+//        addDataFromCSVFile(location, filename1, market1);
 
+        String filename2 = "FTSE100(£)1440.csv";
+        String market2 = "FTSE100";
+        addDataFromCSVFile(location, filename2, market2);
+
+//        ArrayList<String[]> priceData = CSVParser.getData(path1);
+//        for (String[] lineArray : priceData) {
+//            // System.out.print(Arrays.toString(lineArray));
+//            // System.out.print("\n");
+//            PricePoint pricePoint = new PricePoint(lineArray[0], lineArray[1], lineArray[2], lineArray[3], lineArray[4], lineArray[5], lineArray[6]);
+//            pricePointRepository.save(pricePoint);
+//        }
 
 
 
@@ -59,6 +66,16 @@ public class DataLoader implements ApplicationRunner {
 
     }
 
+    public void addDataFromCSVFile(String location, String filename, String market) {
+
+        String path = location + filename;
+        ArrayList<String[]> priceData = CSVParser.getData(path);
+        for (String[] lineArray : priceData) {
+            PricePoint pricePoint = new PricePoint(market, lineArray[0], lineArray[1], lineArray[2], lineArray[3], lineArray[4], lineArray[5], lineArray[6]);
+            pricePointRepository.save(pricePoint);
+        }
+
+    }
 
 
 }
