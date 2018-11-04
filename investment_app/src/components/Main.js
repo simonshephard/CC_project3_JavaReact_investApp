@@ -35,7 +35,9 @@ class Main extends Component {
   updateData() {
     let request = new Request();
     // request.get("/pricePoints").then((data) => {
-    request.get("pricePoints").then((data) => {
+    // http://localhost:8080/pricePoints?size=1000
+    // request.get("pricePoints").then((data) => {
+    request.get("pricePoints?size=1000").then((data) => {
       console.log(data);
       this.setState({data: data._embedded.pricePoints})
     });
