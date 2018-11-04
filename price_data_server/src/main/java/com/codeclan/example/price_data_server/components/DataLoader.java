@@ -24,9 +24,9 @@ public class DataLoader implements ApplicationRunner {
 
         String location = "/Users/user/codeclan/work/w15/CC_project3_JavaReact_investApp/20181102/";
 
-//        String filename1 = "EURUSD(£)1440.csv";
-//        String market1 = "EURUSD";
-//        addDataFromCSVFile(location, filename1, market1);
+        String filename1 = "EURUSD(£)1440.csv";
+        String market1 = "EURUSD";
+        addDataFromCSVFile(location, filename1, market1);
 
         String filename2 = "FTSE100(£)1440.csv";
         String market2 = "FTSE100";
