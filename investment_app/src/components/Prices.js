@@ -5,19 +5,18 @@ import {LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip} from 'rec
 const Prices = ({data}) => {
 
   const listItems = data.map((pricePoint, index) => {
-    return <li key={index}>{pricePoint.date}: {pricePoint.price}</li>
+    return <li key={index}>{pricePoint.date}: {pricePoint.close}</li>
   });
 
   // <YAxis type="number" domain={[900, 1200]} />
   // <YAxis type="number" domain={[1, 2]} />
-
 
   return (
     <div>
 
       <h4>Price Chart</h4>
       <LineChart width={600} height={400} data={data} margin={{top: 10, right: 10, bottom: 10, left: 10}}>
-        <Line type="monotone" dataKey="price" dot={false} stroke="#000000" />
+        <Line type="monotone" dataKey="close" dot={false} stroke="#000000" />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <XAxis dataKey="date" />
         <YAxis type="number" domain={[0.9, 1.3]} />

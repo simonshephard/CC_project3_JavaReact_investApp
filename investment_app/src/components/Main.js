@@ -13,19 +13,8 @@ class Main extends Component {
     super(props);
     this.state = {
       data: []
-      // data: [
-      //   {
-      //     date: 20181101,
-      //     price: 1000.00
-      //   }, {
-      //     date: 20181102,
-      //     price: 1010.00
-      //   }
-      // ]
     }
-
     this.updateData = this.updateData.bind(this);
-
   }
 
   componentDidMount() {
@@ -34,7 +23,6 @@ class Main extends Component {
 
   updateData() {
     let request = new Request();
-    // request.get("/pricePoints").then((data) => {
     // http://localhost:8080/pricePoints?size=1000
     // request.get("pricePoints").then((data) => {
     request.get("pricePoints?size=1000").then((data) => {
