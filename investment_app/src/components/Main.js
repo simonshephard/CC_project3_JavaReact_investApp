@@ -14,16 +14,16 @@ class Main extends Component {
     super(props);
     this.state = {
       data: [],
-      markets: [],
+      markets: ["FTSE100", "EURUSD"],
       currentMarket: null
     }
     this.updateData = this.updateData.bind(this);
     this.selectMarket = this.selectMarket.bind(this);
   }
 
-  componentDidMount() {
-    this.updateData();
-  }
+  // componentDidMount() {
+  //   this.updateData();
+  // }
 
   updateData() {
     let request = new Request();
@@ -32,8 +32,9 @@ class Main extends Component {
     // request.get("pricePoints?size=2000").then((data) => {
 
     // request.get("pricePoints/market/FTSE100").then((data) => {
-    request.get("pricePoints/market/EURUSD").then((data) => {
-
+    console.log("updating data - currentMarket is: ", this.state.currentMarket);
+    let dataPath = "pricePoints/market/" + this.state.currentMarket;
+    request.get(dataPath).then((data) => {
       // console.log(data);
       // this.setState({data: data._embedded.pricePoints})
       this.setState({data: data})
@@ -41,11 +42,15 @@ class Main extends Component {
   }
 
   selectMarket(index) {
+    console.log("selectMarket called");
     const selectedMarket = this.state.markets[index];
+    console.log("selectMarket is: ", selectedMarket);
     this.setState({currentMarket: selectedMarket});
+    this.updateData();
   }
 
   render() {
+    // this.updateData();
     return (
       <Router>
         <React.Fragment>

@@ -3,7 +3,7 @@ import React from 'react';
 const MarketSelector = (props) => {
 
   const options = props.markets.map((market, index) => {
-    return <option key={index} value={index}>{market.name}</option>
+    return <option key={index} value={index}>{market}</option>
   });
 
   function handleChange(event) {
