@@ -1,5 +1,6 @@
 import React from 'react';
 import MarketSelector from './MarketSelector';
+import Performance from './Performance';
 import {LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip} from 'recharts';
 
 
@@ -32,6 +33,10 @@ const Prices = ({data, markets, selectMarket}) => {
         <Legend width={100} wrapperStyle={{bottom: 90, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 2, lineHeight: '30px'}} />
         <Tooltip wrapperStyle={{width: 200, backgroundColor: "#ccc"}} />
       </LineChart>
+
+      <h4>Performance</h4>
+      <Performance data={data} />
+
 
       <h4>Price Data</h4>
       <ul>

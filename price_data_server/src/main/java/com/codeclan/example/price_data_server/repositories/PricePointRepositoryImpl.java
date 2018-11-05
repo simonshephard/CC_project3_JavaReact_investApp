@@ -36,25 +36,5 @@ public class PricePointRepositoryImpl implements PricePointRepositoryCustom {
         return pricePoints;
     }
 
-//    @Transactional
-//    public List<String> getMarkets(){
-//
-//        List<PricePoint> pricePoints = null;
-//        List<String> markets = null;
-//        Session session = entityManager.unwrap(Session.class);
-//
-//        try {
-//            Criteria cr = session.createCriteria(PricePoint.class);
-//            pricePoints = cr.list();
-//            pricePoints.stream().distinct().collect(Collectors.toList());
-//
-//        } catch (HibernateException e) {
-//            e.printStackTrace();
-//        } finally {
-//            session.close();
-//        }
-//
-//        return markets;
-//    }
 
 }
