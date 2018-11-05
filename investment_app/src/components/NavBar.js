@@ -1,16 +1,20 @@
-import React from "react";
+import React from 'react';
 import { Link } from "react-router-dom";
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const NavBar = () => (
-  <ul>
-    <li>
-      <Link to="/">Home</Link>
-    </li>
-    <li>
-      <Link to="/prices">Prices</Link>
-    </li>
-  </ul>
-)
 
+  <Navbar>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="/">InvestApp</a>
+      </Navbar.Brand>
+    </Navbar.Header>
+    <Nav>
+      <NavItem eventKey={1} href="/prices">Prices</NavItem>
+    </Nav>
+  </Navbar>
+
+)
 
 export default NavBar;
