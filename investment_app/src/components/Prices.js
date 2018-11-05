@@ -2,15 +2,9 @@ import React from 'react';
 import MarketSelector from './MarketSelector';
 import PriceChart from './PriceChart';
 import Performance from './Performance';
+import PriceData from './PriceData';
 
 const Prices = ({data, markets, selectMarket}) => {
-
-  console.log("in prices", markets);
-
-  const listItems = data.map((pricePoint, index) => {
-    return <li key={index}>{pricePoint.market}, {pricePoint.date + "-" + pricePoint.time}, {pricePoint.close}</li>
-  });
-
 
   return (
     <div>
@@ -25,12 +19,11 @@ const Prices = ({data, markets, selectMarket}) => {
       <Performance data={data} />
 
       <h4>Price Data</h4>
-      <ul>
-        {listItems}
-      </ul>
+      <PriceData data={data} />
 
     </div>
   )
+
 };
 
 export default Prices;
