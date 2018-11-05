@@ -119,4 +119,5 @@ public class PricePoint {
     public void setVolume(String volume) {
         this.volume = volume;
     }
+
 }
