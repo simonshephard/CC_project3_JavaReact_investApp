@@ -26,31 +26,32 @@ class Main extends Component {
   // }
 
   updateData() {
+    console.log("before updating data currentMarket is:", this.state.currentMarket);
     let request = new Request();
-    // http://localhost:8080/pricePoints?size=1000
-    // request.get("pricePoints").then((data) => {
-    // request.get("pricePoints?size=2000").then((data) => {
-
     // request.get("pricePoints/market/FTSE100").then((data) => {
-    console.log("updating data - currentMarket is: ", this.state.currentMarket);
     let dataPath = "pricePoints/market/" + this.state.currentMarket;
     request.get(dataPath).then((data) => {
       // console.log(data);
       // this.setState({data: data._embedded.pricePoints})
       this.setState({data: data})
     });
+    console.log("after updating data currentMarket is:", this.state.currentMarket);
   }
 
   selectMarket(index) {
-    console.log("selectMarket called");
+    // console.log("selectMarket called - index", index);
     const selectedMarket = this.state.markets[index];
-    console.log("selectMarket is: ", selectedMarket);
-    this.setState({currentMarket: selectedMarket});
-    this.updateData();
+    // console.log("selectedMarket is:", selectedMarket);
+    // console.log("before updating state currentMarket is:", this.state.currentMarket);
+    this.setState({currentMarket: selectedMarket}, () => {
+      // console.log("after updating state in callback currentMarket is:", this.state.currentMarket);
+      this.updateData();
+    });
+    // console.log("after updating state outside callback currentMarket is:", this.state.currentMarket);
   }
 
   render() {
-    // this.updateData();
+    console.log("rendering");
     return (
       <Router>
         <React.Fragment>

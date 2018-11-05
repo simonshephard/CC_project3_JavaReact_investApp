@@ -5,7 +5,7 @@ import {LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip} from 'rec
 
 const Prices = ({data, markets, selectMarket}) => {
 
-  console.log(markets);
+  console.log("in prices", markets);
 
   const listItems = data.map((pricePoint, index) => {
     return <li key={index}>{pricePoint.market}, {pricePoint.date + "-" + pricePoint.time}, {pricePoint.close}</li>
@@ -16,8 +16,6 @@ const Prices = ({data, markets, selectMarket}) => {
   // <YAxis type="number" domain={[1, 2]} />
   // <YAxis type="number" domain={[0.9, 1.3]} label={{value: "Price", angle: -90, offset: 0, position: "left"}} />
   // <YAxis type="number" domain={[5000, 8000]} label={{value: "Price", angle: -90, offset: 0, position: "left"}} />
-
-
 
   return (
     <div>
