@@ -13,9 +13,12 @@ class Main extends Component {
   constructor(props){
     super(props);
     this.state = {
-      data: []
+      data: [],
+      markets: [],
+      currentMarket: null
     }
     this.updateData = this.updateData.bind(this);
+    this.selectMarket = this.selectMarket.bind(this);
   }
 
   componentDidMount() {
@@ -37,6 +40,11 @@ class Main extends Component {
     });
   }
 
+  selectMarket(index) {
+    const selectedMarket = this.state.markets[index];
+    this.setState({currentMarket: selectedMarket});
+  }
+
   render() {
     return (
       <Router>
@@ -44,7 +52,7 @@ class Main extends Component {
           <NavBar />
           <Route exact path="/" component={Home} />
           <Route path="/prices"
-            render={ ()=> <Prices data={this.state.data} /> }
+            render={ ()=> <Prices data={this.state.data} markets={this.state.markets} selectMarket={this.selectMarket} /> }
           />
           <Route path="/update" component={Update} />
         </React.Fragment>

@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
+import MarketSelector from './MarketSelector';
 import {LineChart, Line, CartesianGrid, XAxis, YAxis, Legend, Tooltip} from 'recharts';
 
 
-const Prices = ({data}) => {
+const Prices = ({data, markets, selectMarket}) => {
 
   const listItems = data.map((pricePoint, index) => {
     return <li key={index}>{pricePoint.market}, {pricePoint.date + "-" + pricePoint.time}, {pricePoint.close}</li>
@@ -15,8 +16,12 @@ const Prices = ({data}) => {
   // <YAxis type="number" domain={[5000, 8000]} label={{value: "Price", angle: -90, offset: 0, position: "left"}} />
 
 
+
   return (
     <div>
+
+      <h4>Market Selector</h4>
+      <MarketSelector markets={markets} selectMarket={selectMarket} />
 
       <h4>Price Chart</h4>
       <LineChart width={600} height={400} data={data} margin={{top: 10, right: 10, bottom: 10, left: 10}}>
