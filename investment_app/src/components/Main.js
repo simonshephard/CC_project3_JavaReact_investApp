@@ -14,15 +14,24 @@ class Main extends Component {
     this.state = {
       data: [],
       markets: ["EURUSD", "FTSE100", "SPX500"],
-      currentMarket: null
+      currentMarket: "FTSE100",
+      selectedDataPoint: null
     }
     this.updateData = this.updateData.bind(this);
     this.selectMarket = this.selectMarket.bind(this);
   }
 
+  componentDidMount() {
+    let request = new Request();
+    let dataPath = "/pricePoints/market/" + this.state.currentMarket;
+    request.get(dataPath).then((data) => {
+      this.setState({data: data})
+    });
+  }
+
   updateData() {
     let request = new Request();
-    let dataPath = "pricePoints/market/" + this.state.currentMarket;
+    let dataPath = "/pricePoints/market/" + this.state.currentMarket;
     request.get(dataPath).then((data) => {
       this.setState({data: data})
     });
@@ -37,6 +46,7 @@ class Main extends Component {
 
   render() {
     console.log("rendering");
+    console.log(this.state.data);
     return (
       <Router>
         <React.Fragment>
@@ -44,13 +54,13 @@ class Main extends Component {
           <NavBar />
 
           <Route exact path="/" component={Home} />
-          <Route path="/prices"
-            render={ () => <Prices data={this.state.data} markets={this.state.markets} selectMarket={this.selectMarket} /> }
+          <Route path="/prices/all"
+            render={ () => <Prices data={this.state.data} markets={this.state.markets} selectMarket={this.selectMarket} currentMarket={this.state.currentMarket}/> }
+          />
+          <Route path="/prices/:id"
+            render={ (props) => <EditData {...props} /> }
           />
           <Route path="/update" component={Update} />
-          <Route path="/editprices/:dataIndex"
-            render={ () => <EditData data={this.state.data} /> }
-          />
 
         </React.Fragment>
       </Router>

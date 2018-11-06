@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const NavBar = () => (
@@ -11,7 +11,7 @@ const NavBar = () => (
       </Navbar.Brand>
     </Navbar.Header>
     <Nav>
-      <NavItem eventKey={1} href="/prices">Prices</NavItem>
+      <NavItem eventKey={1} href="/prices/all">Prices</NavItem>
     </Nav>
   </Navbar>
 

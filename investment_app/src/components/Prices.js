@@ -4,12 +4,12 @@ import PriceChart from './PriceChart';
 import Performance from './Performance';
 import PriceData from './PriceData';
 
-const Prices = ({data, markets, selectMarket}) => {
+const Prices = ({data, markets, selectMarket, currentMarket}) => {
 
   return (
     <div>
 
-      <h4>Market Selector</h4>
+      <h4>Market Selector (current: {currentMarket})</h4>
       <MarketSelector markets={markets} selectMarket={selectMarket} />
 
       <h4>Price Chart</h4>
