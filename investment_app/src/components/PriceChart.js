@@ -11,6 +11,7 @@ const PriceChart = ({data}) => {
   return (
     <LineChart width={600} height={400} data={data} margin={{top: 10, right: 10, bottom: 10, left: 10}}>
       <Line type="monotone" dataKey="close" dot={false} stroke="#000000" />
+      <Line type="monotone" dataKey="ma" dot={false} stroke="#FF0000" />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
       <XAxis dataKey="date" label={{value: "Date", offset: 0, position: "bottom"}} />
       <YAxis type="number" domain={[0.9, 1.3]} label={{value: "Price", angle: -90, offset: 0, position: "left"}} />
