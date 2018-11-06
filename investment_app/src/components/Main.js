@@ -14,7 +14,7 @@ class Main extends Component {
     super(props);
     this.state = {
       data: [],
-      markets: ["FTSE100", "EURUSD"],
+      markets: ["FTSE100", "SPX500", "EURUSD"],
       currentMarket: null
     }
     this.updateData = this.updateData.bind(this);

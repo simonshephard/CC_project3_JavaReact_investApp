@@ -3,7 +3,7 @@ import { Grid, Row, Col, Button } from 'react-bootstrap';
 
 const PriceData = ({data}) => {
 
-  const rows = data.map((pricePoint, index) => {
+  const rows = data.reverse().map((pricePoint, index) => {
     return (
         <Row className="show-grid" key={index}>
           <Col xs={2} md={3}>{pricePoint.market}</Col>
