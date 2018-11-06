@@ -4,7 +4,8 @@ import Home from "./Home";
 import Prices from "./Prices";
 import Update from "./Update";
 import Request from '../helpers/request.js';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
+import { Switch, Route } from 'react-router'
 import EditData from "./EditData";
 
 class Main extends Component {
@@ -53,14 +54,19 @@ class Main extends Component {
 
           <NavBar />
 
-          <Route exact path="/" component={Home} />
-          <Route path="/prices/all"
-            render={ () => <Prices data={this.state.data} markets={this.state.markets} selectMarket={this.selectMarket} currentMarket={this.state.currentMarket}/> }
-          />
-          <Route path="/prices/:id"
-            render={ (props) => <EditData {...props} /> }
-          />
-          <Route path="/update" component={Update} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+
+            <Route exact path="/prices/all"
+              render={ () => <Prices data={this.state.data} markets={this.state.markets} selectMarket={this.selectMarket} currentMarket={this.state.currentMarket}/> }
+            />
+
+            <Route exact path="/prices/:id"
+              render={ (props) => <EditData {...props} /> }
+            />
+
+            <Route path="/update" component={Update} />
+          </Switch>
 
         </React.Fragment>
       </Router>

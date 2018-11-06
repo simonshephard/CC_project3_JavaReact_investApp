@@ -25,7 +25,6 @@ class EditData extends Component {
     console.log("props:", this.props);
     console.log("props.match.params.id:", this.props.match.params.id);
 
-    let data = null;
     let request = new Request();
     let dataPath = "/pricePoints/" + this.props.match.params.id;
     request.get(dataPath)
