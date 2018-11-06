@@ -9,7 +9,7 @@ const PriceData = ({data}) => {
           <Col xs={2} md={3}>{pricePoint.market}</Col>
           <Col xs={2} md={3}>{pricePoint.date + "-" + pricePoint.time}</Col>
           <Col xs={2} md={3}>{pricePoint.close}</Col>
-          <Col xs={2} md={3}><Button bsSize="small">Edit</Button></Col>
+          <Col xs={2} md={3}><Button bsSize="small" value={index} href={"editprices/"+(data.length-1-index)}>Edit</Button></Col>
         </Row>
     );
   });
