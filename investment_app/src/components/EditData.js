@@ -64,7 +64,7 @@ class EditData extends Component {
   render() {
 
     return (
-      <div>
+      <div className="editData">
 
         <h4>Edit Data</h4>
 

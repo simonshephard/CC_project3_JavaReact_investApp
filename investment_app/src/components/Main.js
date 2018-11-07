@@ -51,20 +51,23 @@ class Main extends Component {
         <React.Fragment>
 
           <NavBar />
-
+          <div id="main">
           <Switch>
-            <Route exact path="/" component={Home} />
 
-            <Route exact path="/prices/all"
-              render={ () => <Prices data={this.state.data} markets={this.state.markets} selectMarket={this.selectMarket} currentMarket={this.state.currentMarket}/> }
-            />
+              <Route className="comp" exact path="/" component={Home} />
 
-            <Route exact path="/prices/:id"
-              render={ (props) => <EditData {...props} /> }
-            />
+              <Route className="comp" exact path="/prices/all"
+                render={ () => <Prices data={this.state.data} markets={this.state.markets} selectMarket={this.selectMarket} currentMarket={this.state.currentMarket}/> }
+              />
 
-            <Route path="/update" component={Update} />
+              <Route className="comp" exact path="/prices/:id"
+                render={ (props) => <EditData {...props} /> }
+              />
+
+              <Route className="comp" path="/update" component={Update} />
+
           </Switch>
+          </div>
 
         </React.Fragment>
       </Router>
