@@ -7,7 +7,6 @@ const MarketSelector = (props) => {
   });
 
   function handleChange(event) {
-    console.log("handle change called - event.value", event.target.value);
     props.selectMarket(event.target.value);
   }
 

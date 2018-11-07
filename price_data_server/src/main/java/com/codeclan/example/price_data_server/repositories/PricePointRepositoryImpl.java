@@ -1,5 +1,6 @@
 package com.codeclan.example.price_data_server.repositories;
 
+import com.codeclan.example.price_data_server.components.PricePointDateSorter;
 import com.codeclan.example.price_data_server.models.PricePoint;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 
 public class PricePointRepositoryImpl implements PricePointRepositoryCustom {
@@ -32,6 +34,8 @@ public class PricePointRepositoryImpl implements PricePointRepositoryCustom {
         } finally {
             session.close();
         }
+
+        Collections.sort(pricePoints, new PricePointDateSorter());
 
         return pricePoints;
     }

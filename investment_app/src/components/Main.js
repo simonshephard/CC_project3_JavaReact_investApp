@@ -14,7 +14,7 @@ class Main extends Component {
     super(props);
     this.state = {
       data: [],
-      markets: ["EURUSD", "FTSE100", "SPX500"],
+      markets: ["EURUSD", "FTSE100", "SPX500", "EUSTX50", "JPN225"],
       currentMarket: "FTSE100",
       selectedDataPoint: null
     }

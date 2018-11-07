@@ -24,7 +24,7 @@ class EditData extends Component {
     let dataPath = "/pricePoints/" + this.props.match.params.id;
     request.get(dataPath)
     .then((data) => {
-      this.setState({id: data.id, date: data.date, market: data.market, close: data.close}, () => {console.log("this.state.data", this.state);});
+      this.setState({id: data.id, date: data.date, market: data.market, close: data.close});
     })
     .catch((err) => {
       console.log(err);
@@ -44,12 +44,6 @@ class EditData extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("handleSubmit called");
-    console.log("event.target", event.target);
-    console.log("date", event.target.date.value);
-    console.log("market", event.target.market.value);
-    console.log("close", event.target.close.value);
-    console.log("event.target.value", event.target.value);
 
     let request = new Request();
     const newDate = event.target.date.value;
@@ -61,7 +55,8 @@ class EditData extends Component {
     if (newClose) {newData.close = newClose;}
     const pathToUpdate = "/pricePoints/" + this.state.id;
     request.patch(pathToUpdate, newData).then((data) => {
-      console.log(data);
+      // console.log(data);
+      console.log("Data updated");
     });
 
   }
