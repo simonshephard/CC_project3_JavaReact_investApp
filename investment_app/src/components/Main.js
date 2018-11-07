@@ -46,8 +46,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log("rendering");
-    console.log(this.state.data);
     return (
       <Router>
         <React.Fragment>

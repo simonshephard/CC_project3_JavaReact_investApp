@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 import Request from '../helpers/request.js';
 
-// const EditData = (props) => {
 class EditData extends Component {
 
   constructor(props){
@@ -17,26 +16,19 @@ class EditData extends Component {
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleMarketChange = this.handleMarketChange.bind(this);
     this.handleCloseChange = this.handleCloseChange.bind(this);
-
   };
 
   componentDidMount() {
-
-    console.log("props:", this.props);
-    console.log("props.match.params.id:", this.props.match.params.id);
 
     let request = new Request();
     let dataPath = "/pricePoints/" + this.props.match.params.id;
     request.get(dataPath)
     .then((data) => {
-      console.log("data", data);
       this.setState({id: data.id, date: data.date, market: data.market, close: data.close}, () => {console.log("this.state.data", this.state);});
     })
     .catch((err) => {
       console.log(err);
     });
-
-    console.log("out");
 
   }
 
@@ -49,13 +41,6 @@ class EditData extends Component {
   handleCloseChange(event) {
     this.setState({close: event.target.value});
   }
-
-
-  // let request = new Request();
-  // const newTime = "05:00";
-  // request.patch("pricePoints/1", {time: newTime}).then((data) => {
-  //   console.log(data);
-  // });
 
   handleSubmit(event) {
     event.preventDefault();
@@ -79,44 +64,13 @@ class EditData extends Component {
       console.log(data);
     });
 
-
-
   }
-
-
-  // handleSubmit(event) {
-  //    event.preventDefault();
-  //    const author = this.state.author.trim();
-  //    const text = this.state.text.trim();
-  //    if (!text || !author) {
-  //      return
-  //    }
-  //    this.props.onCommentSubmit({author: author, text: text});
-  //    this.setState({author: '', text: ''});
-  //  }
-
-  // <form className="comment-form" onSubmit={this.handleSubmit}>
-  //   <input
-  //     type="text"
-  //     placeholder="Your name"
-  //     value={this.state.author}
-  //     onChange={this.handleAuthorChange}
-  //   />
-  //   <input
-  //     type="text"
-  //     placeholder="Say something..."
-  //     value={this.state.text}
-  //     onChange={this.handleTextChange}
-  //   />
-  //   <input type="submit" value="Post" />
-  // </form>
-
-
 
   render() {
 
     return (
       <div>
+
         <h4>Edit Data</h4>
 
         <p>id: {this.state.id}</p>
@@ -128,8 +82,6 @@ class EditData extends Component {
             <Button className="btn btn-primary btn-large centerButton" type="submit" value="Post">Send</Button>
           </FormGroup>
         </form>
-
-
 
       </div>
     );

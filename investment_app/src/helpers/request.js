@@ -1,7 +1,6 @@
 class Request {
 
   get(url) {
-    console.log("getting from: ", url);
     return fetch(url)
     .then((res) => res.json());
   }

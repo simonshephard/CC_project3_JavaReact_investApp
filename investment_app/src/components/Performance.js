@@ -2,10 +2,7 @@ import React from 'react';
 
 const Performance = ({data}) => {
 
-
-  console.log("data", data);
   const datalen = data.length;
-  console.log("data.len", datalen);
 
   let per_1day = 0;
   let per_1month = 0;
@@ -14,9 +11,6 @@ const Performance = ({data}) => {
   let per_12month = 0
 
   if (datalen > 0) {
-    // console.log("data-1", data[datalen-1].close);
-    // console.log("data-1/20", data[datalen-1].close / data[datalen-1-20].close);
-    // console.log("data-1/60", data[datalen-1].close / data[datalen-1-60].close);
     per_1day = 100 * (data[datalen-1].close / data[datalen-1-1].close -1);
     per_1month = 100 * (data[datalen-1].close / data[datalen-1-20].close -1);
     per_3month = 100 * (data[datalen-1].close / data[datalen-1-60].close -1);

@@ -6,7 +6,6 @@ import PriceData from './PriceData';
 
 const Prices = ({data, markets, selectMarket, currentMarket}) => {
 
-  console.log("data", data);
   let runningTotal = 0.0;
   for (let i = 0; i < data.length; i++) {
     if (i < 20) {
@@ -16,9 +15,6 @@ const Prices = ({data, markets, selectMarket, currentMarket}) => {
       runningTotal += parseFloat(data[i].close - data[i-20].close);
       data[i].ma = runningTotal/20;
     }
-    console.log("dataPoint", parseFloat(data[i].close), "\n");
-    console.log("runningTotal", runningTotal, "\n");
-    console.log("runningTotal/20", runningTotal/20);
   }
 
   return (
