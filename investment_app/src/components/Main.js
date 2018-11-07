@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Prices from "./Prices";
 import Update from "./Update";
+import Upload from "./Upload";
 import Request from '../helpers/request.js';
 import { BrowserRouter as Router} from "react-router-dom";
 import { Switch, Route } from 'react-router'
@@ -65,6 +66,8 @@ class Main extends Component {
               />
 
               <Route className="comp" path="/update" component={Update} />
+
+              <Route className="comp" path="/upload" component={Upload} />
 
           </Switch>
           </div>

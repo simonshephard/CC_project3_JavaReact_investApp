@@ -13,6 +13,9 @@ const NavBar = () => (
     <Nav>
       <NavItem eventKey={1} href="/prices/all">Prices</NavItem>
     </Nav>
+    <Nav>
+      <NavItem eventKey={2} href="/upload">Upload</NavItem>
+    </Nav>
   </Navbar>
 
 )
